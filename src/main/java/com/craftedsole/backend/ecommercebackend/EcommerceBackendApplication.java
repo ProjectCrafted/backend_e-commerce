@@ -1,4 +1,4 @@
-package com.craftedsol.shop.ecommercebackend;
+package com.craftedsole.backend.ecommercebackend;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
