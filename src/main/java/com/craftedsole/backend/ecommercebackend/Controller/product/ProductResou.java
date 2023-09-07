@@ -1,8 +1,7 @@
 package com.craftedsole.backend.ecommercebackend.Controller;
 
 import com.craftedsole.backend.ecommercebackend.Service.ProductlistService;
-import com.craftedsole.backend.ecommercebackend.model.productlisting;
-import org.apache.coyote.Response;
+import com.craftedsole.backend.ecommercebackend.model.product.productlisting;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -11,6 +10,8 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/productlist")
+@CrossOrigin(origins = "http://localhost:3004")
+
 public class ProductResou {
     private final ProductlistService productlistService;
 
@@ -33,7 +34,7 @@ public class ProductResou {
     }
 
     @PostMapping("/add")
-    public ResponseEntity<productlisting> addProductlisting(@RequestBody productlisting productlisting)
+    public ResponseEntity<productlisting> addProductlisting( @RequestBody productlisting productlisting)
     {
         productlisting newProductlisting =productlistService.addProductlisting(productlisting);
         return new ResponseEntity<>(newProductlisting, HttpStatus.CREATED);
