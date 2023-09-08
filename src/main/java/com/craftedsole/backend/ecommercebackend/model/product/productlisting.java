@@ -1,10 +1,19 @@
-package com.craftedsole.backend.ecommercebackend.model;
+package com.craftedsole.backend.ecommercebackend.model.product;
 
 import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import java.io.Serializable;
+import java.util.Arrays;
+import java.util.List;
 
 @Entity
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
+
 public class productlisting implements Serializable {
 
     @Id
@@ -12,74 +21,31 @@ public class productlisting implements Serializable {
     @Column(nullable = true,updatable = false)
     private Long id;
     private String name;
-    private String imageurl;
+    @Column(name = "images",unique = false,nullable = false,length = 100000)
+    private byte[] image;
+    private String imageType;
     private String color;
     private String price;
     private String quantity;
     @Column(nullable = false,updatable = false)
     private String productcode;
-    public Long getId() {
-        return id;
-    }
 
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
+    public productlisting(String name, byte[] imageBytes, String color, String price, String quantity, String productcode) {
         this.name = name;
-    }
-
-    public String getImageurl() {
-        return imageurl;
-    }
-
-    public void setImageurl(String imageurl) {
-        this.imageurl = imageurl;
-    }
-
-    public String getColor() {
-        return color;
-    }
-
-    public void setColor(String color) {
+        this.image = imageBytes;
         this.color = color;
-    }
-
-    public String getPrice() {
-        return price;
-    }
-
-    public void setPrice(String price) {
         this.price = price;
-    }
-
-    public String getQuantity() {
-        return quantity;
-    }
-
-    public void setQuantity(String quantity) {
-        quantity = quantity;
-    }
-
-    public String getProductcode() {
-        return productcode;
-    }
-
-    public void setProductcode(String productcode) {
+        this.quantity = quantity;
         this.productcode = productcode;
     }
+
 
     @Override
     public String toString() {
         return "productlisting{" +
                 "id=" + id +
                 ", name='" + name + '\'' +
-                ", imageurl='" + imageurl + '\'' +
+                ", image=" + Arrays.toString(image) +
                 ", color='" + color + '\'' +
                 ", price='" + price + '\'' +
                 ", quantity='" + quantity + '\'' +

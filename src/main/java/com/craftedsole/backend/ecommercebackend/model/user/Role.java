@@ -1,2 +1,2 @@
-package com.craftedsole.backend.ecommercebackend.user;public enum Role {
+package com.craftedsole.backend.ecommercebackend.model.user;public enum Role {
 }

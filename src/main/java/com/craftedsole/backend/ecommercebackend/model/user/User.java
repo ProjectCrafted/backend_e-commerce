@@ -1,4 +1,4 @@
-package com.craftedsole.backend.ecommercebackend.user;
+package com.craftedsole.backend.ecommercebackend.model.user;
 
 public class User {
 }
